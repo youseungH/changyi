@@ -19,3 +19,15 @@ source myenv/bin/activate
 pip install -r requirements.txt
 
 3. 일단 이거 데이터 쌓여야 코딩 되는거 있어서 아직은 안돌아가는게 정상임
+
+4. 파일 구조 설명
+changyi/
+│
+├── app.py -> 이게 rest api로 mylib를 감싸는 파일
+├── mylib/ -> 주제 뽑고 위험도 분류하는 라이브러리
+│   └──__init__.py
+│   └──classification.py
+│   └──test_text_subject.py
+└── requirements.txt -> 버젼 통일을 위한 txt파일
+
+
