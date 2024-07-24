@@ -24,7 +24,7 @@ pip install -r requirements.txt
 4. 파일 구조 설명
 
 changyi/
-│
+
 ├── app.py -> 이게 rest api로 mylib를 감싸는 파일
 
 ├── mylib/ -> 주제 뽑고 위험도 분류하는 라이브러리
