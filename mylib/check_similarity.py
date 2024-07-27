@@ -25,6 +25,11 @@ similarity = cosine_similarity(embedding1, embedding2)
 #이중 체크를 위해 주제 체크도 할까?
 
 def Similarity(text, datas):
+    '''
+    parameters : 
+    text -> 주제 분류의 대상이 되는 재난 문자
+    datas -> 재난문자 data/ 자료형 : list나 array로 받을 거라고 생각하고 짬.
+    '''
         text_embeded = get_sentence_embedding(text)
         text_coff = {}
         for data in datas : 
