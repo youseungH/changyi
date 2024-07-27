@@ -21,23 +21,17 @@ embedding2 = get_sentence_embedding(sentence2)
 # 코사인 유사도 계산
 similarity = cosine_similarity(embedding1, embedding2)
 
-print(f"두 문장의 유사도: {similarity[0][0]}")
-
 ##일단 실험 결과 전혀 상관 없는 내용의 문장들은 8n%대의 일치율을 보였음 -> 내용 일치의 경우 93%이상
 #이중 체크를 위해 주제 체크도 할까?
 
 def Similarity(text, datas):
-    while True : 
-        i = 0 
         text_embeded = get_sentence_embedding(text)
-        data_embeded = get_sentence_embedding(datas[i])
-
-        if cosine_similarity(text_embeded,data_embeded) >= 0.93 : 
-            #구체적 점검 필요
-            return True
-        if i == len(datas) : 
-            #끝까지 못찾는다면 Flase return 
-            return False 
-        i += 1
-
-        
+        text_coff = {}
+        for data in datas : 
+            coff = cosine_similarity(text_embeded,get_sentence_embedding(data))
+            text_coff[float(coff)] = data
+        max_coff= max(text_coff.keys())
+        sentence_similar = text_coff[max_coff]
+        if max_coff >= 0.9 : 
+             return True, sentence_similar
+        else : return False
