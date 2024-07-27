@@ -4,7 +4,7 @@ import tensorflow as tf
 from konlpy.tag import Okt
 from keybert import KeyBERT
 from mylib.test_text_subject import extract_topics #test_text_subject.py에서 extraact_topics import 
-
+from mylib.check_similarity import Similarity
 
 #중요도 논의 방법 
 '''
@@ -65,9 +65,6 @@ class Jaenan_moonja() :
         data : 재난문자 발송 기준 or 사전 모델링된 재난문자 데이터
         text가 기존 데이터에 있다면 그냥 원래 방법으로 진행하면 되는거고 data에 text가 포함될 수 없는 형식이라면 새로운 처리 과정을 거치는게 유리함
         '''
-        if self.text in data : 
-            return True  
-        else : 
-            return False 
+        return Similarity(self.text, data)
 
 
